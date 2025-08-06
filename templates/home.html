@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            background: white;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0ffe0;
+            color: #333;
+            border: 1px solid #00aa00;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FWI Prediction</h1>
+        <form method="POST">
+            <input type="text" name="temperature" placeholder="Temperature" required>
+            <input type="text" name="relative_humidity" placeholder="Relative Humidity" required>
+            <input type="text" name="wind_speed" placeholder="Wind Speed" required>
+            <input type="text" name="rain" placeholder="Rain" required>
+            <input type="text" name="ffmc" placeholder="FFMC" required>
+            <input type="text" name="dmc" placeholder="DMC" required>
+            <input type="text" name="dc" placeholder="DC" required>
+            <input type="text" name="isi" placeholder="ISI" required>
+            <input type="text" name="region" placeholder="Region" required>
+            <input type="text" name="classes" placeholder="Classes" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result">
+            <h2>Predicted FWI: {{ result }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
